@@ -6,10 +6,10 @@ type LoginAuth struct {
 	Username string `form:"username" json:"username" uri:"username" xml:"username" binding:"required"`
 	Pssword  string `form:"password" json:"password" uri:"password" xml:"password" binding:"required"`
 }
-	var LoginPayload LoginAuth
-	if err := c.ShouldBindJSON(&LoginPayload); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+var LoginPayload LoginAuth
+if err := c.ShouldBindJSON(&LoginPayload); err != nil {
+c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+return
+}
 ```
 
